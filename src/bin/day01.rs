@@ -4,19 +4,19 @@ mod utils;
 fn main() {
     let part1 = utils::read_line(get_digits);
 
-    let part2 = utils::read_line(|line| get_digits(replace_words_with_digits(&line).as_str()));
+    let part2 = utils::read_line(|line, _| get_digits(replace_words_with_digits(&line).as_str()));
 
     println!(
         "Part1: {:?}, Part2: {:?}",
-        utils::get_sum_of_nums(&part1),
-        utils::get_sum_of_nums(&part2)
+        utils::get_sum_of(&part1),
+        utils::get_sum_of(&part2)
     );
 }
 
 fn get_digits(characters: &str) -> i32 {
     let mut digits = Vec::new();
     for char in characters.chars() {
-        if is_digit(char) {
+        if char.is_numeric() {
             digits.push(char);
         }
     }
@@ -56,8 +56,4 @@ fn replace_words_with_digits(characters: &str) -> String {
     }
 
     return result;
-}
-
-fn is_digit(ch: char) -> bool {
-    return ch >= '0' && ch <= '9';
 }

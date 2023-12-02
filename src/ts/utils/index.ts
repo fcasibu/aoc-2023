@@ -16,6 +16,10 @@ export async function readInput() {
   }
 }
 
-export function getSumOfNums(nums: number[]): number {
+export function getSumOf(nums: number[]): number {
   return nums.reduce((acc, curr) => acc + curr, 0);
+}
+
+export function getProductOf(nums: number[]): number {
+  return nums.reduce((acc, curr) => acc * curr, 1);
 }

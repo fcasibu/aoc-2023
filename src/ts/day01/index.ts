@@ -1,4 +1,4 @@
-import { getSumOfNums, readInput } from "../utils";
+import { getSumOf, readInput } from "../utils";
 
 const input = await readInput();
 console.log({ part1: part1(), part2: part2() });
@@ -6,7 +6,7 @@ console.log({ part1: part1(), part2: part2() });
 function part1() {
   const nums = input.map(getDigits);
 
-  return getSumOfNums(nums);
+  return getSumOf(nums);
 }
 
 function part2() {
@@ -14,7 +14,7 @@ function part2() {
     getDigits(replaceWordsWithDigits(characters)),
   );
 
-  return getSumOfNums(nums);
+  return getSumOf(nums);
 }
 
 function getDigits(characters: string): number {
