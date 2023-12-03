@@ -23,3 +23,11 @@ export function getSumOf(nums: number[]): number {
 export function getProductOf(nums: number[]): number {
   return nums.reduce((acc, curr) => acc * curr, 1);
 }
+
+export function isDigit(ch: string): boolean {
+  return ch >= "0" && ch <= "9";
+}
+
+export function isLetter(ch: string): boolean {
+  return (ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z");
+}

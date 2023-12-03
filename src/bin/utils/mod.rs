@@ -39,3 +39,7 @@ pub fn get_sum_of(nums: &Vec<i32>) -> i32 {
 pub fn get_product_of(nums: &Vec<i32>) -> i32 {
     return nums.iter().product();
 }
+
+pub fn is_digit(ch: &char) -> bool {
+    return ch.is_digit(10);
+}
