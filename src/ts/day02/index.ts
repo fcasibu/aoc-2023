@@ -13,8 +13,8 @@ console.log({ part1: part1(), part2: part2() });
 
 function part1() {
   const gameIds = input.map((line, index) => {
-    const gameResult = getSets(line).map(checkIfPossibleToPlay);
-    return gameResult.filter(Boolean).length > 0 ? 0 : index + 1;
+    const gameResult = getSets(line).filter(checkIfPossibleToPlay).length;
+    return gameResult == 0 ? index + 1 : 0;
   });
 
   return getSumOf(gameIds);

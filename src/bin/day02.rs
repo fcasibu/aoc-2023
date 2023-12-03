@@ -13,25 +13,21 @@ fn main() {
         blue: 14,
     };
 
-    let part1 = utils::read_line(|line, index| {
+    let part1 = utils::read_lines(|line, index| {
         let sets = get_sets(line);
-        let game_result = sets
+        let game_result_count = sets
             .iter()
-            .map(|set| check_if_possible_to_play(&set, &config))
-            .collect::<Vec<bool>>();
+            .filter(|set| check_if_possible_to_play(set, &config))
+            .count();
 
-        match game_result
-            .into_iter()
-            .filter(|x| x == &true)
-            .collect::<Vec<bool>>()
-            .len() as i32
-        {
-            0 => (index + 1) as i32,
-            _ => 0,
+        if game_result_count == 0 {
+            return (index + 1) as i32;
         }
+
+        return 0;
     });
 
-    let part2 = utils::read_line(|line, _| {
+    let part2 = utils::read_lines(|line, _| {
         let sets = get_sets(line);
         let game_result = sets
             .iter()
@@ -91,10 +87,10 @@ fn get_max_values_of(game: &Vec<Cubes>) -> Vec<i32> {
             green: 0,
             blue: 0,
         },
-        |acc, color| Cubes {
-            red: acc.red.max(color.red),
-            green: acc.green.max(color.green),
-            blue: acc.blue.max(color.blue),
+        |cubes, color| Cubes {
+            red: cubes.red.max(color.red),
+            green: cubes.green.max(color.green),
+            blue: cubes.blue.max(color.blue),
         },
     );
 

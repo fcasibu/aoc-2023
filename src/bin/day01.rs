@@ -2,9 +2,9 @@ use std::collections::HashMap;
 mod utils;
 
 fn main() {
-    let part1 = utils::read_line(get_digits);
+    let part1 = utils::read_lines(|line, _| get_digits(line));
 
-    let part2 = utils::read_line(|line, _| get_digits(replace_words_with_digits(&line).as_str()));
+    let part2 = utils::read_lines(|line, _| get_digits(replace_words_with_digits(&line).as_str()));
 
     println!(
         "Part1: {:?}, Part2: {:?}",
@@ -21,19 +21,19 @@ fn get_digits(characters: &str) -> i32 {
         }
     }
 
-    match concat_first_and_last_characters(&digits).parse::<i32>() {
-        Ok(value) => value,
-        _ => 0,
+    if let Ok(value) = concat_first_and_last_characters(&digits).parse::<i32>() {
+        return value;
     }
+
+    return 0;
 }
 
 fn concat_first_and_last_characters(characters: &Vec<char>) -> String {
-    match (characters.first(), characters.last()) {
-        (Some(first), Some(last)) => {
-            return first.to_string() + &last.to_string();
-        }
-        _ => String::new(),
+    if let (Some(first), Some(last)) = (characters.first(), characters.last()) {
+        return first.to_string() + &last.to_string();
     }
+
+    return String::new();
 }
 
 fn replace_words_with_digits(characters: &str) -> String {
