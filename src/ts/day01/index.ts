@@ -1,6 +1,6 @@
 import { getSumOf, readInput } from "../utils";
 
-const input = await readInput();
+const input = await readInput("\n");
 console.log({ part1: part1(), part2: part2() });
 
 function part1() {

@@ -1,6 +1,6 @@
 import { getSumOf, getProductOf, readInput } from "../utils";
 
-const input = await readInput();
+const input = await readInput('\n'));
 const config = {
   red: 12,
   green: 13,

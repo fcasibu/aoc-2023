@@ -1,6 +1,6 @@
 import { getSumOf, getProductOf, readInput, isDigit } from "../utils";
 
-const input = await readInput();
+const input = await readInput("\n");
 type Point = {
   x: number;
   y: number;

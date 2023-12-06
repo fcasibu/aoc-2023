@@ -1,6 +1,6 @@
 import { join } from "path";
 
-export async function readInput() {
+export async function readInput(separator: string) {
   const { argv, cwd, exit } = process;
   const file_path = argv[2];
 
@@ -9,7 +9,7 @@ export async function readInput() {
   try {
     const file = await Bun.file(join(cwd(), file_path)).text();
 
-    return file.trim().split("\n");
+    return file.trim().split(separator);
   } catch (e) {
     console.log("Something went wrong with reading file", e);
     return exit(1);

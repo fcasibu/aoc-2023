@@ -1,6 +1,6 @@
 import { readInput } from "../utils";
 
-const input = await readInput();
+const input = await readInput("\n");
 
 type Card = {
   index: number;
