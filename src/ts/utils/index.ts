@@ -31,3 +31,10 @@ export function isDigit(ch: string): boolean {
 export function isLetter(ch: string): boolean {
   return (ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z");
 }
+
+export function zip<T extends unknown[], U extends unknown[]>(
+  a: T,
+  b: U,
+): [T[number], U[number]][] {
+  return a.map((val, i) => [val, b[i % b.length]]);
+}
